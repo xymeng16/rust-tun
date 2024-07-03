@@ -16,8 +16,14 @@ use core::pin::Pin;
 use core::task::{Context, Poll};
 use futures_core::ready;
 use std::io::{IoSlice, Read, Write};
+#[cfg(not(target_env = "ohos"))]
 use tokio::io::unix::AsyncFd;
+#[cfg(target_env = "ohos")]
+use napi_ohos::tokio::io::unix::AsyncFd;
+#[cfg(not(target_env = "ohos"))]
 use tokio::io::{AsyncRead, AsyncWrite, ReadBuf};
+#[cfg(target_env = "ohos")]
+use napi_ohos::tokio::io::{AsyncRead, AsyncWrite, ReadBuf};
 use tokio_util::codec::Framed;
 
 use super::TunPacketCodec;
