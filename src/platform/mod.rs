@@ -17,10 +17,15 @@
 #[cfg(unix)]
 pub mod posix;
 
-#[cfg(target_os = "linux")]
+#[cfg(all(target_os = "linux", not(target_env = "ohos")))]
 pub mod linux;
-#[cfg(target_os = "linux")]
+#[cfg(all(target_os = "linux", not(target_env = "ohos")))]
 pub use self::linux::{create, Device, PlatformConfig};
+
+#[cfg(all(target_os = "linux", target_env = "ohos"))]
+pub mod ohos;
+#[cfg(all(target_os = "linux", target_env = "ohos"))]
+pub use self::ohos::{create, Device, PlatformConfig};
 
 #[cfg(target_os = "freebsd")]
 pub mod freebsd;
