@@ -17,8 +17,8 @@ cfg-if = "1.0"
 futures-core = { version = "0.3", optional = true }
 libc = { version = "0.2", features = ["extra_traits"] }
 log = "0.4"
-napi-derive-ohos = { version = "1.0.0-beta.2", features = ["full"] }
-napi-ohos = {  version = "1.0.0-beta.2", features = ["full", "tokio_full"] }
+napi-derive-ohos = { version = "1.0.0-beta.3" }
+napi-ohos = {  version = "1.0.0-beta.3", features = ["tokio_full"] }
 thiserror = "1"
 tokio = { version = "1", features = [
     "net",
@@ -71,4 +71,4 @@ name = "ping-tun"
 required-features = ["async"]
 
 [build-dependencies]
-napi-build-ohos = { version = "1.0.0-beta.2" }
+napi-build-ohos = { version = "1.0.0-beta.3" }
